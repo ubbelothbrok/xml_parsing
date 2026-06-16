@@ -12,12 +12,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # 4. Define the executable target and its source files
+
 add_library(xml_parsing 
-    src/a.cpp
-
-
+    src/utils.cpp
 )
+
+if(TEST)
 add_executable(my_app 
     samples/main.cpp
-    include/utils.h
 )
+target_link_libraries(my_app xml_parsing)
+endif()

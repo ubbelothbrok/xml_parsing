@@ -17,9 +17,11 @@ add_library(xml_parsing
     src/utils.cpp
 )
 
-if(TEST)
-add_executable(my_app 
-    samples/main.cpp
-)
-target_link_libraries(my_app xml_parsing)
+option(BUILD_SAMPLES "Build sample applications" ON)
+
+if(BUILD_SAMPLES)
+    add_executable(my_app 
+        samples/main.cpp
+    )
+    target_link_libraries(my_app xml_parsing)
 endif()
